@@ -302,7 +302,7 @@ def compute_crop_window_tf_batch(
         ).reshape(-1, 3)
         pts = poses[:, :3, 3].reshape(-1, 1, 3) + offsets.reshape(1, -1, 3)
         K = torch.as_tensor(K)
-        projected = (K @ pts.reshape(-1, 3).T).T
+        projected = (K.to(dtype=pts.dtype) @ pts.reshape(-1, 3).T).T
         uvs = projected[:, :2] / projected[:, 2:3]
         uvs = uvs.reshape(B, -1, 2)
         center = uvs[:, 0]

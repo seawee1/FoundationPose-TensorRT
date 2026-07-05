@@ -156,7 +156,7 @@ if __name__ == "__main__":
             exit()
         print("Extracting demo data...")
         with zipfile.ZipFile(zip_path, "r") as zf:
-            zf.extractall(script_dir)
+            zf.extractall(os.path.join(script_dir, "demo_data"))
         os.remove(zip_path)
         print("Done.")
 

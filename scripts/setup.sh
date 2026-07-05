@@ -15,4 +15,4 @@ deactivate_deps
 pip install -e $SCRIPT_DIR/..
 
 pip uninstall numpy -y
-pip install "numpy<2"
+pip install "numpy<2" transformations Ninja
